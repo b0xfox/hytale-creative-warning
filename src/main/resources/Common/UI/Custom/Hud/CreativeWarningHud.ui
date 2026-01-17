@@ -1,0 +1,21 @@
+Group {
+  Anchor: (Full: 0);
+
+  Group #CreativeWarning {
+
+    Anchor: (Height: 75);
+    Background: #ff0000(0.25);
+    Padding: (Horizontal: 12, Vertical: 6);
+    LayoutMode: Center;
+
+    Label #CreativeWarningText {
+      Style: (
+        FontSize: 42,
+        RenderBold: true,
+        TextColor: #ffdddd(0.60),
+        Alignment: Center
+      );
+      Text: "MESSAGE";
+    }
+  }
+}

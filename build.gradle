@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.github.b0xfox'
+version = '1.0.0'
+
+def targetJavaVersion = 25
+
+def os = System.getProperty('os.name').toLowerCase()
+def userHome = System.getProperty('user.home')
+
+def hytaleFolder
+if (os.contains('win')) {
+    hytaleFolder = "${userHome}/AppData/Roaming/Hytale"
+} else if (os.contains('mac')) {
+    hytaleFolder = "${userHome}/Library/Application Support/Hytale"
+} else {
+    hytaleFolder = "${userHome}/.var/app/com.hypixel.HytaleLauncher/data/Hytale"
+}
+
+def modsFolder  = "${hytaleFolder}/UserData/Mods"
+def serverJar   = "${hytaleFolder}/install/release/package/game/latest/Server/HytaleServer.jar"
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly(files(serverJar))
+    compileOnly(files("libs/MultipleHUD-1.0.1.jar"))
+}
+
+task copyPlugin(type: Copy) {
+    dependsOn build
+    from tasks.named('jar').get().outputs.files
+    into modsFolder
+    doLast {
+        println "Copied plugin to: ${modsFolder}"
+    }
+}
+
+build.finalizedBy copyPlugin

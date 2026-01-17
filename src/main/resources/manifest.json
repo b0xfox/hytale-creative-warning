@@ -1,0 +1,18 @@
+{
+    "Group": "B0xfox",
+    "Name": "CreativeWarning",
+    "Version": "1.0.0",
+    "Description": "Displays a HUD warning when in Creative Mode. Compatible with Buuz135 MultipleHUD",
+    "Authors": [
+        {
+            "Name": "b0xfox"
+        }
+    ],
+    "Main": "io.github.b0xfox.creativewarning.CreativeWarningPlugin",
+    "ServerVersion": "*",
+    "OptionalDependencies": {
+        "Buzz135:MultipleHUD": ">=1.0.1"
+    },
+    "DisabledByDefault": false,
+    "IncludesAssetPack": true
+}
