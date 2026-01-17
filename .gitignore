@@ -1,12 +1,14 @@
 .gradle
 build/
 libs/
+run/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 .kotlin
 
 ### IntelliJ IDEA ###
+.idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -42,5 +44,3 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-run/
-.idea/

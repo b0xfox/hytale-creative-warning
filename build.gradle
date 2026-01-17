@@ -68,13 +68,13 @@ tasks.named('processResources') {
     dependsOn 'updatePluginManifest'
 }
 
+def pluginJarPrefix = "${project.name}-"
 tasks.register('copyPlugin', Copy) {
     dependsOn 'jar'
 
     doFirst {
-        def pluginNamePrefix = project.name + '-'
         file(modsFolder).listFiles()?.each { file ->
-            if (file.name.startsWith(pluginNamePrefix) && file.name.endsWith('.jar')) {
+            if (file.name.startsWith(pluginJarPrefix) && file.name.endsWith('.jar')) {
                 println "Deleted old plugin: ${file.name} from ${modsFolder}"
                 file.delete()
             }

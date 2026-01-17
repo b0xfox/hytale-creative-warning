@@ -11,6 +11,8 @@ import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
+import io.github.b0xfox.creativewarning.components.CreativeWarningComponent;
+
 public class CreativeWarningHud extends CustomUIHud {
 
     private boolean hidden;
@@ -27,9 +29,15 @@ public class CreativeWarningHud extends CustomUIHud {
         Player player = store.getComponent(ref, Player.getComponentType());
 
         if (player != null && playerRef.isValid()) {
-            hidden = player.getGameMode() != GameMode.Creative;
-        } else {
-            hidden = false;
+
+            CreativeWarningComponent component = store.getComponent(ref, CreativeWarningComponent.getComponentType());
+
+            if (component == null) {
+                hidden = player.getGameMode() != GameMode.Creative;
+            } else {
+                hidden = true;
+            }
+
         }
     }
 

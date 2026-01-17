@@ -1,11 +1,11 @@
 {
-    "Group": "B0xfox",
+    "Group": "Boxfox",
     "Name": "CreativeWarning",
-    "Version": "2026.1.17-65369",
+    "Version": "2026.1.17-71209",
     "Description": "Displays a HUD warning when in Creative Mode. Compatible with Buuz135 MultipleHUD",
     "Authors": [
         {
-            "Name": "b0xfox",
+            "Name": "boxfox",
             "Url": "https://github.com/b0xfox"
         }
     ],
